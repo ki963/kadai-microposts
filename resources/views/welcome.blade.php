@@ -6,8 +6,10 @@
             <aside class="col-sm-4">
                 {{-- ユーザ情報 --}}
                 @include('users.card')
+                
             </aside>
             <div class="col-sm-8">
+                @include('users.navtabs')
                 {{-- 投稿フォーム --}}
                 @include('microposts.form')
                 {{-- 投稿一覧 --}}

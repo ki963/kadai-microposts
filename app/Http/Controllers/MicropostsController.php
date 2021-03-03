@@ -11,6 +11,7 @@ class MicropostsController extends Controller
         if (\Auth::check()) {
             // 認証済みユーザ（閲覧者）を取得
             $user = \Auth::user();
+            $user->loadRelationshipCounts();
             // ユーザとフォロー中ユーザの投稿の一覧を作成日時の降順で取得
             $microposts = $user->feed_microposts()->orderBy('created_at', 'desc')->paginate(10);
 
@@ -51,5 +52,7 @@ class MicropostsController extends Controller
         // 前のURLへリダイレクトさせる
         return back();
     }
+    
+    
 
 }
